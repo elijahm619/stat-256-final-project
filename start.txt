@@ -1,0 +1,1 @@
+Program Overview: In this code, NHL teams excluding the Seattle Kraken are matched up against each other to determine a winner. This project was created for a Statistical Computing course as a final project. The program uses linear models for each team based on team data to determine the winner for each matchup.
