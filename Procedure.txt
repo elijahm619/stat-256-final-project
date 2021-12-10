@@ -1,0 +1,14 @@
+1. Make sure you have the most up to date version of R downloaded on your OS. 
+2. Download the attached data nhl_elo(2). 
+3. Open R and import the data into R using NHLData<-read.csv('nhl_elo(2).csv',header=T)
+4. Use the following code to import the function: 
+Winner<-function(var1,var2){ 
+attach(NHLData) 
+NHLModel<-lm(Post_Home_Rating_Post_Away_Rating_2021~log(Home_Score_Away_Score_2021)+sqrt(Post_Home_Rating_Post_Away_Rating_2020),data=NHLData) 
+Value=fitted.values(NHLModel) 
+comparisontable=cbind(Team,Value) 
+for (i in 1:length(Team)) if (var1==comparisontable[i,1]) varone=comparisontable[i,2] 
+for (i in 1:length(Team)) if (var2==comparisontable[i,1]) vartwo=comparisontable[i,2] 
+detach(NHLData) if (varone>vartwo) print(paste(var1, "win!")) else 
+if (vartwo>varone) print(paste(var2, "win!") ) else print("Undetermined")}
+5. Select any two NHL teams in R by calling function winner and entering the teams like so Winner('<insert team 1>','<insert team 2>').
